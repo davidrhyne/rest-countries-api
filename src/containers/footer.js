@@ -1,10 +1,11 @@
 import React from 'react'
+import { Footer } from '../components';
 
-export function FooterContainer({children}) {
+export function FooterContainer() {
     return (
-        <div>
-            <p>this is the footer container</p>
-            <p>{children}</p>
-        </div>
+        <Footer>
+            <Footer.Text>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>.</Footer.Text>
+            <Footer.Text>Coded by <a href="mailto:davidrhyne@att.net">David Rhyne</a>.</Footer.Text>
+        </Footer>
     )
 }

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import {Switch, Route } from "react-router-dom"
 import './App.css';
+import * as ROUTES from './constants/routes';
 import { Home } from './pages'
+import { Featured } from './pages'
 
 function App() {
 
@@ -13,32 +15,20 @@ function App() {
 
   return (
 
+    <div>    
+      <Switch>
+          <Route exact path={ROUTES.HOME}>
+              <Home />
+          </Route>
+          {/* <Route exact path={ROUTES.FEATURED}>
+              <Featured /> 
+          </Route> */}
+          <Route exact path={`${ROUTES.FEATURED}/:countryCode`}>
+              <Featured /> 
+          </Route>          
 
-
-
-
-    <div>
-    {/* <Header /> */}
-    
-    <Switch>
-        <Route exact path="/">
-            <Home />
-        </Route>
-        <Route exact path="/profile">
-            {/* <Profile /> */}
-        </Route>
-        <Route path="/profile/info">
-            {/* <Info/> */}
-        </Route>
-        <Route path="/profile/settings">
-            {/* <Settings/> */}
-        </Route>
-    </Switch>
-    
-    {/* <Footer /> */}
+      </Switch>   
     </div>
-
-
 
   );
 }
