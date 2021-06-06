@@ -1,16 +1,22 @@
 import React, { useState, useEffect }  from 'react'
 import { HeaderContainer } from '../containers/header'
 import { FooterContainer } from '../containers/footer'
-import * as API from '../constants/api';
+import { Card } from '../components'
+import * as API from '../constants/api'
+import { Link as ReachRouterLink } from 'react-router-dom'
 
 export default function Home() {
 
     const [countryData, setCountryData] = useState([])
+    const [filteredCountryData, setFilteredCountryData] = useState([])
     const [searchValue, setSearchValue] = useState("")
     const [hasError, setHasError] = useState(false)
     const [regionValue, setRegionValue] = useState("")
 
-    useEffect( ()=> {
+
+    // get the full set of country data once, when loaded
+    useEffect(()=> {
+        console.log('api getting the data')
 
         async function handleResponse(response) {
             setHasError(!response.ok)
@@ -18,29 +24,36 @@ export default function Home() {
         }
 
         async function getData() {
-            const searchByName = `${API.NAME}${searchValue}`
-            const searchByRegion = `${API.REGION}${regionValue}`
-            //const searchApi = !searchValue ? API.ALL : searchByName
-            const searchApi = regionValue !== 'none' ? searchByRegion : !searchValue ? API.ALL : searchByName
-
-            //console.log(searchApi)
-
-            const response = await fetch(searchApi)
+            const response = await fetch(API.ALL)
             const data = await handleResponse(response)
-            
-            // if there is a region and search value, then filter region data by search value
-            // else, use the data as-is
-            regionValue !== 'none' && searchValue 
-                ? setCountryData(data.filter(country => country.name.toLowerCase().includes(searchValue.toLowerCase())))                
-                : setCountryData(data)
+            setCountryData(data)
         }
         getData()
 
-    },[searchValue, regionValue])
+    },[])
+
+    // use filteredCountryData for displaying the countries that have 
+    // been filtered by regionValue and/or searchValue, or show all
+    useEffect( ()=> {
+        const data = countryData
+        const searchByName = searchValue.toLowerCase()
+        const searchByRegion = regionValue.toLowerCase()
+        //console.log('searchByName', searchByName, 'searchByRegion', searchByRegion, 'filter: data',data)
+        
+
+        if (searchByName && searchByRegion ) {
+            setFilteredCountryData(data.filter(country => country.name.toLowerCase().includes(searchByName) && country.region.toLowerCase() === searchByRegion ))
+        } else if (searchByName) {
+            setFilteredCountryData(data.filter(country => country.name.toLowerCase().includes(searchByName) ))
+        } else {
+            setFilteredCountryData(data)
+        }
+
+    },[countryData, searchValue, regionValue])
 
     console.log('searchValue = ', searchValue)
     console.log('regionValue = ', regionValue)
-    console.log('countries = ', countryData)
+    console.log('countries = ', filteredCountryData)
 
     return (
         <div>
@@ -51,17 +64,30 @@ export default function Home() {
             <h3>this is the home page</h3>
             <p>Oops, there is a problem, please check the search field = {hasError ? "true" : "false"}</p>
             <select value={regionValue} onChange={({target})=> setRegionValue(target.value)}>
-               <option value="none">Filter By Region</option>  
+               <option value="">Filter By Region</option>  
                <option value="africa">Africa</option>
                <option value="americas">Americas</option>
                <option value="asia">Asia</option>
                <option value="europe">Europe</option>
                <option value="oceania">Oceania</option>
             </select>
-            {!countryData.length ? <p>Sorry, no countries were found</p> : 
-                countryData.map(country => <span>{country.name}</span>)
-            
-            }
+
+            <Card.Group>
+                {!filteredCountryData.length ? <p>Sorry, no countries were found</p> : 
+                    filteredCountryData.map(country => {
+                        return (
+                            <Card>
+                                <Card.Image src={country.flag} alt={country.name} />
+                                <ReachRouterLink to={`/featured/${country.alpha3Code}`}>
+                                    <Card.Title>{country.name}</Card.Title>
+                                </ReachRouterLink>
+                            </Card>)
+                    })
+                
+                }
+
+
+            </Card.Group>
             <FooterContainer>
                 <p>this is body of the Footer</p>
             </FooterContainer>
