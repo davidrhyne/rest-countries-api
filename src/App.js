@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import {Switch, Route } from "react-router-dom"
 import './App.css';
 import * as ROUTES from './constants/routes';
@@ -7,11 +7,7 @@ import { Featured } from './pages'
 
 function App() {
 
-  const [countryData, setCountryData] = useState([])
 
-  function getRemoteData() {
-
-  }
 
   return (
 
