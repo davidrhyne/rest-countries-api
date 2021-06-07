@@ -4,6 +4,7 @@ import './App.css';
 import * as ROUTES from './constants/routes';
 import { Home } from './pages'
 import { Featured } from './pages'
+import { CountryDataContextProvider } from './context/countryDataContext'
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
 
   return (
 
-    <div>    
+    <CountryDataContextProvider>    
       <Switch>
           <Route exact path={ROUTES.HOME}>
               <Home />
@@ -24,7 +25,7 @@ function App() {
           </Route>          
 
       </Switch>   
-    </div>
+    </CountryDataContextProvider>
 
   );
 }
