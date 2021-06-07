@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Text } from './styles/Feature'
+import { Container, Text, Button } from './styles/Feature'
 
 export default function Feature({children, ...restProps}) {
     return (
@@ -9,4 +9,8 @@ export default function Feature({children, ...restProps}) {
 
 Feature.Text = function FeatureText({children, ...restProps}) {
     return <Text {...restProps}>{children}</Text>
+}
+
+Feature.Button = function FeatureButton({children, ...restProps}) {
+    return <Button {...restProps}>{children}</Button>
 }

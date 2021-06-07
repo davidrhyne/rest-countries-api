@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
+
 export const Container = styled.div`
-    background: dodgerblue;
+    background: ${props => props.isDarkTheme ? "darkgrey" : "dodgerblue"};
 `
 
 export const Text = styled.p`
-    color: yellow;
+    color: ${props => props.isDarkTheme ? "white" : "yellow"};
 `
