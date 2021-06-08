@@ -5,7 +5,7 @@ export const Container = styled.div`
 `
 
 export const Text = styled.p`
-    color: yellow;
+    color: ${props => props.theme.color};
 `
 
 export const Title = styled.div`

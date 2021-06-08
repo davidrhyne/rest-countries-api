@@ -6,5 +6,5 @@ export const Container = styled.div`
 `
 
 export const Text = styled.p`
-    color: ${props => props.isDarkTheme ? "white" : "yellow"};
+    color: ${props => props.isDarkTheme ? "white" : "black"};
 `

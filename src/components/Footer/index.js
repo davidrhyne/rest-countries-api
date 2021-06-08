@@ -12,6 +12,6 @@ export default function Footer({children, ...restProps}) {
 }
 
 Footer.Text = function FooterText({children, ...restProps}) { 
-    console.log('footerText props', restProps)   
+   
     return <Text {...restProps}>{children}</Text>
 }
