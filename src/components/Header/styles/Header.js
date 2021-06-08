@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    background: dodgerblue;
+    background: ${props => props.theme.background};
 `
 
 export const Text = styled.p`
-    color: ${props => props.theme.color};
+    color: ${props => props.theme.text};
 `
 
 export const Title = styled.div`

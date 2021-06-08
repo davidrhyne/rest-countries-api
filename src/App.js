@@ -9,12 +9,14 @@ import { CountryDataContextProvider } from './context/countryDataContext'
 import {  ThemeProvider } from 'styled-components'
 // import { ThemeValueProvider } from './context/ThemeValueContext'
 import { useTheme } from './context/ThemeValueContext'
-
+import {THEME} from './constants/themes'
 
 function App() {
 
   const isDarkTheme = useTheme()
   console.log('isDarkTheme = ', isDarkTheme)
+
+  console.log('THEME = ', THEME.LIGHT)
 
   const theme = {
     background: "white",
@@ -30,7 +32,7 @@ function App() {
 
     <CountryDataContextProvider>    
       {/* <ThemeValueProvider> */}
-        <ThemeProvider theme={isDarkTheme ? darkTheme : theme}>
+        <ThemeProvider theme={isDarkTheme ? THEME.DARK : THEME.LIGHT}>
           <Switch>
               <Route exact path={ROUTES.HOME}>
                   <Home />
