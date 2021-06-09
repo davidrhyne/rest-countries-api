@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    background: ${props => props.theme.background};
+    background: ${props => props.theme.element};
     display: flex;
     justify-content: space-between;
     padding: 2em 1em;

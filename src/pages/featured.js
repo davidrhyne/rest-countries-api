@@ -25,47 +25,70 @@ export default function Featured() {
         .borders.map(countryCode => 
             countryData.filter( country => country.alpha3Code === countryCode)[0])
         .sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
-    //console.log(borders.forEach(country => country.name))
-    // console.log(borders)
-    //console.log(featuredCountry.borders)
-    console.log('featuredCountry[0]', featuredCountry[0].flag)
+
+    // pull out values in arrays to strings 
+    const domainList = featuredCountry[0].topLevelDomain.join(", ")    
+
+    const currenciesList = featuredCountry[0].currencies.map(currency => currency.name).join(", ")
+
+    const languageList = featuredCountry[0].languages.map(language => language.name).join(", ")
+
+
     return (
             <div>
-            <HeaderContainer> this is the header</HeaderContainer>
-            <Feature>
-                <Link to={ROUTES.HOME}><i class="fas fa-arrow-left"><span>Back</span></i></Link>
-                <Feature.Image src={featuredCountry[0].flag} alt={featuredCountry[0].name} />
-                
-                <Feature.Title>{featuredCountry[0].name} </Feature.Title>
-                <Feature.Label>Native Name:
-                    <Feature.Text>{featuredCountry[0].nativeName} </Feature.Text>
-                </Feature.Label>
-                <Feature.Label>Population:
-                    <Feature.Text>{featuredCountry[0].population.toLocaleString()} </Feature.Text>
-                </Feature.Label>
-                <Feature.Label>Region:
-                    <Feature.Text>{featuredCountry[0].region} </Feature.Text>
-                </Feature.Label>
-                <Feature.Label>Sub Region:
-                    <Feature.Text>{featuredCountry[0].subregion} </Feature.Text>
-                </Feature.Label>       
-                <Feature.Label>Capital:
-                    <Feature.Text>{featuredCountry[0].capital} </Feature.Text>
-                </Feature.Label>
-                <Feature.Label>Top Level Domain:
-                    <Feature.Text>{featuredCountry[0].topLevelDomain} </Feature.Text>
-                </Feature.Label>           
-                <Feature.Label>Currencies:
-                    {featuredCountry[0].currencies.map(currency => <Feature.Text>{currency.name}</Feature.Text>)}
-                </Feature.Label>
-                <Feature.Label>Languages:
-                    {featuredCountry[0].languages.map(language => <Feature.Text>{language.name}</Feature.Text>)}
-                </Feature.Label>                              
-                <Feature.Label>Border Countries:
-                    {borders.length ? borders.map(country => <Feature.Button><Link to={`/featured/${country.alpha3Code}`}>{country.name}</Link></Feature.Button>) : <div>no border countries</div>}
-                </Feature.Label>
-            </Feature>
-            <FooterContainer >this is the footer</FooterContainer>
+                <HeaderContainer />
+                <Feature>
+
+                    <Link to={ROUTES.HOME}>
+                        <Feature.ButtonBack >
+                            <i class="fas fa-arrow-left"><span>Back</span></i>
+                        </Feature.ButtonBack>
+                    </Link> 
+                    
+                    <Feature.Image src={featuredCountry[0].flag} alt={featuredCountry[0].name} />
+                    <Feature.Title>{featuredCountry[0].name} </Feature.Title>
+                    <Feature.SubSection panel1>
+                        
+                        <Feature.Label>Native Name:
+                            <Feature.Text>{featuredCountry[0].nativeName} </Feature.Text>
+                        </Feature.Label>
+                        <Feature.Label>Population:
+                            <Feature.Text>{featuredCountry[0].population.toLocaleString()} </Feature.Text>
+                        </Feature.Label>
+                        <Feature.Label>Region:
+                            <Feature.Text>{featuredCountry[0].region} </Feature.Text>
+                        </Feature.Label>
+                        <Feature.Label>Sub Region:
+                            <Feature.Text>{featuredCountry[0].subregion} </Feature.Text>
+                        </Feature.Label>       
+                        <Feature.Label>Capital:
+                            <Feature.Text>{featuredCountry[0].capital} </Feature.Text>
+                        </Feature.Label>
+                    </Feature.SubSection>
+
+                    <Feature.Spacer />
+                    <Feature.SubSection  panel2>
+
+                        <Feature.Label>Top Level Domain:
+                            <Feature.Text>{domainList} </Feature.Text>
+                        </Feature.Label>           
+                        <Feature.Label>Currencies:
+                            <Feature.Text>{currenciesList}</Feature.Text>
+                        </Feature.Label>
+                        <Feature.Label>Languages:
+                            <Feature.Text>{languageList}</Feature.Text>
+                        </Feature.Label>    
+                    </Feature.SubSection>
+                    <Feature.Spacer />   
+    
+                    <Feature.GroupHeading><span>Border Countries: </span>
+                        <Feature.Group>
+                            {borders.length ? borders.map(country => <Link to={`/featured/${country.alpha3Code}`}><Feature.Button>{country.name}</Feature.Button></Link>) : <Feature.Text>no border countries</Feature.Text>}
+                        </Feature.Group>
+                    </Feature.GroupHeading>
+
+                </Feature>
+                <FooterContainer />
             </div>
 
     )
