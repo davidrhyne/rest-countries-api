@@ -5,9 +5,7 @@ import * as ROUTES from './constants/routes';
 import { Home } from './pages'
 import { Featured } from './pages'
 import { CountryDataContextProvider } from './context/countryDataContext'
-
-import {  ThemeProvider } from 'styled-components'
-// import { ThemeValueProvider } from './context/ThemeValueContext'
+import {  ThemeProvider, createGlobalStyle } from 'styled-components'
 import { useTheme } from './context/ThemeValueContext'
 import {THEME} from './constants/themes'
 
@@ -15,23 +13,23 @@ function App() {
 
   const isDarkTheme = useTheme()
   console.log('isDarkTheme = ', isDarkTheme)
-
   console.log('THEME = ', THEME.LIGHT)
 
-  const theme = {
-    background: "white",
-    color: "yellow"
+  const GlobalStyle = createGlobalStyle`
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: .875rem;
+      font-weight: 600;
+      box-sizing: border-box;
+      margin: 0;
   }
-
-  const darkTheme = {
-    background: "darkgrey",
-    color: "red"
-  }
+`
 
   return (
 
     <CountryDataContextProvider>    
-      {/* <ThemeValueProvider> */}
+
+      <GlobalStyle />
         <ThemeProvider theme={isDarkTheme ? THEME.DARK : THEME.LIGHT}>
           <Switch>
               <Route exact path={ROUTES.HOME}>
@@ -43,7 +41,7 @@ function App() {
 
           </Switch>   
         </ThemeProvider>
-      {/* </ThemeValueProvider>       */}
+
     </CountryDataContextProvider>
 
   );

@@ -1,20 +1,22 @@
 import React from 'react'
 import { Header } from '../components';
 import * as ROUTES from '../constants/routes';
-import { useThemeUpdate } from '../context/ThemeValueContext'
+import { useTheme, useThemeUpdate } from '../context/ThemeValueContext'
 
 
 export function HeaderContainer( {children}) {
-    const country1 = 'ABC'
-    const country2 = 'XYZ'
 
     const handleToggle = useThemeUpdate()
+    const isDarkTheme = useTheme()
 
     return (
         <Header>
-            <Header.Text>This is the header container</Header.Text>
-            <button onClick={handleToggle}>click this</button>
-            <Header.Text>{children}</Header.Text>
+            <Header.Title>Where in the world?</Header.Title>
+            <Header.Text onClick={handleToggle}>
+                {isDarkTheme ? 
+                    <i class="fas fa-lightbulb"><span>Light Mode</span></i> : 
+                    <i class="far fa-moon"><span>Dark Mode</span></i>}
+            </Header.Text>
         </Header>
     )
 }

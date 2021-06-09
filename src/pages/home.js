@@ -65,9 +65,8 @@ export default function Home() {
         <div>
         
 
-            <HeaderContainer>
-                <p>this is body of the header</p>
-            </HeaderContainer>
+            <HeaderContainer />               
+            
             <input value={searchValue} onChange={({target})=> setSearchValue(target.value)}></input>
             <h3>this is the home page</h3>
             {/* <p>Oops, there is a problem, please check the search field = {hasError ? "true" : "false"}</p> */}
