@@ -11,7 +11,7 @@ export function HeaderContainer( {children}) {
 
     return (
         <Header>
-            <Header.Title>Where in the world?</Header.Title>
+            <Header.Title to={ROUTES.HOME}>Where in the world?</Header.Title>
             <Header.Text onClick={handleToggle}>
                 {isDarkTheme ? 
                     <i class="fas fa-lightbulb"><span>Light Mode</span></i> : 

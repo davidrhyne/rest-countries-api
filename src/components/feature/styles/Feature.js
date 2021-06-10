@@ -6,6 +6,8 @@ export const Container = styled.div`
     padding: 3em 2em;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    
 
     @media (min-width: 500px) {
         
@@ -13,7 +15,7 @@ export const Container = styled.div`
         display: grid;
         margin: 0 auto;
         /* background: black; */
-        gap: 0 2em;
+        gap: 0 1em;
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
             "buttonBack buttonBack "
@@ -24,28 +26,28 @@ export const Container = styled.div`
         ;
     }
 
-    @media (min-width: 800px) {
-
+    @media (min-width: 700px) {
+        
         padding: 5em;
-        grid-template-columns: minmax(250px, 560px) minmax(150px, 250px) minmax(150px, 250px);
-        /* grid-template-rows: auto 75px auto auto; */
+        grid-template-columns: minmax(250px, 560px) 10px minmax(150px, 250px) minmax(150px, 250px);
+        grid-template-rows: auto minmax(50px, 100px) minmax(50px, 200px) minmax(50px, 300px); 
         grid-template-areas: 
-            "buttonBack buttonBack buttonBack "
-            "image title title"
-            "image panel1 panel2"
-            "groupHeading groupHeading groupHeading"        
+            "buttonBack buttonBack buttonBack buttonBack"
+            "image . title title"
+            "image . panel1 panel2"
+            "groupHeading groupHeading groupHeading groupHeading"        
         ;
     }
 
     @media (min-width: 1000px) {
         font-size: 1rem;
         padding: 5em;
-        grid-template-columns: minmax(250px, 560px) minmax(150px, 250px) minmax(150px, 250px);
+        grid-template-columns: minmax(250px, 560px) 50px minmax(150px, 250px) minmax(150px, 250px);
         grid-template-areas: 
-            "buttonBack buttonBack buttonBack "
-            "image title title"
-            "image panel1 panel2"
-            "image groupHeading groupHeading"        
+            "buttonBack buttonBack buttonBack buttonBack"
+            "image . title title"
+            "image . panel1 panel2"
+            "image . groupHeading groupHeading"        
         ;
     }
 
@@ -79,6 +81,12 @@ export const ButtonBack = styled.div`
         font-weight: 300;
     }
 
+    @media (min-width: 700px) {
+        
+        margin-bottom: 3em;
+        
+    }
+
 `
 
 export const Image = styled.img`
@@ -86,10 +94,9 @@ export const Image = styled.img`
     border: 0;
     /* height: 320px; */
     width: 100%;
-    height: auto;
+    /* height: auto; */
     border-radius: 5px;
-    
-    max-width: 600px;
+    max-height: 400px;
     margin: 3.5em auto 1.5em;
     /* border: 4px white solid; */
 
@@ -100,29 +107,32 @@ export const Image = styled.img`
 
     @media (min-width: 600px) {
         
-        margin: 2em 0 0;
+        margin: 2em 0;
+
     }
 
 
 `
 
 export const Title = styled.div`
-    border: 1px limegreen solid;
+    /* border: 1px limegreen solid; */
     grid-area: title;
     font-size: 1.375rem;
     font-weight: 800;
     margin: 1em 0;
+    display: flex;
+    align-items: flex-end;
 
-    @media (min-width: 1200px) {
+    @media (min-width: 1000px) {
         font-size: 2rem;
-        margin: 1em 0;
+        margin: 0 0 1em 0;
         
     }
 
 `
 
 export const Section = styled.div`
-    border: 1px dodgerblue solid;
+    /* border: 1px dodgerblue solid; */
     font-size: 1.375rem;
     
     @media (min-width: 600px) {
@@ -131,22 +141,23 @@ export const Section = styled.div`
 
         padding: 2em;
         
-        background: black;
+        /* background: black; */
     }
     
     
 `
 
 export const SubSection = styled.div`
-    border: 4px pink solid;
+    /* border: 4px pink solid; */
+    
 
     ${props => props.panel1 && `
-        background: purple;
+        /* background: purple; */
         grid-area: panel1;
     `} 
     
     ${props => props.panel2 && `
-        background: dodgerblue;
+        /* background: dodgerblue; */
         grid-area: panel2;
     `} 
 
@@ -158,7 +169,7 @@ export const Label = styled.div`
     margin-bottom: 1em;
 
     @media (min-width: 600px) {
-        margin-bottom: .2em;
+        margin-bottom: .4em;
     }    
 `
 
@@ -169,13 +180,18 @@ export const Text = styled.span`
 export const Spacer = styled.span`
     display: block;
     min-height: 2em;
+
+    @media (min-width: 1000px) {
+        display: unset;
+        
+    }
     
 `
 
 export const GroupHeading = styled.div`
     grid-area: groupHeading;
     font-size: 1rem;
-    border: 1px red solid;
+    /* border: 1px red solid; */
 
     span {
         display: block;
@@ -185,8 +201,14 @@ export const GroupHeading = styled.div`
     
     @media (min-width: 600px) {
         display: unset;
-        
+        margin-top: 1em;
     }
+
+    @media (min-width: 1200px) {
+        margin-top: 0;
+
+    }
+
 
 `
 

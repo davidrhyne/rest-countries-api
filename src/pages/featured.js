@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect} from 'react'
 import * as ROUTES from '../constants/routes';
 import { Link, useParams } from 'react-router-dom';
 import { useCountryData } from '../context/countryDataContext'
@@ -9,16 +9,17 @@ import { Feature } from '../components'
 
 
 export default function Featured() {
+
     const countryData = useCountryData()
     //const isDarkTheme = useTheme()
     //console.log('featured', countryData)
 
     const params = useParams()
-    console.log(params.countryCode)
-
+    console.log('params.countryCode = ', params.countryCode)
+    console.log('countryData = ', countryData )
 
     const featuredCountry = countryData.filter(country => country.alpha3Code === params.countryCode.toUpperCase())
-    console.log(featuredCountry)
+    console.log('featuredCountry = ', featuredCountry)
     // borders is an array of the neighbor's alpha3Code value
     // so, get the full country values and sort them by name
     const borders = featuredCountry[0]
@@ -83,7 +84,7 @@ export default function Featured() {
     
                     <Feature.GroupHeading><span>Border Countries: </span>
                         <Feature.Group>
-                            {borders.length ? borders.map(country => <Link to={`/featured/${country.alpha3Code}`}><Feature.Button>{country.name}</Feature.Button></Link>) : <Feature.Text>no border countries</Feature.Text>}
+                            {borders.length ? borders.map(country => <Link key={country.alpha3Code} to={`/featured/${country.alpha3Code}` }><Feature.Button >{country.name}</Feature.Button></Link>) : <Feature.Text>no border countries</Feature.Text>}
                         </Feature.Group>
                     </Feature.GroupHeading>
 

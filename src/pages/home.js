@@ -57,9 +57,9 @@ export default function Home() {
 
     },[countryData, searchValue, regionValue])
 
-    console.log('searchValue = ', searchValue)
-    console.log('regionValue = ', regionValue)
-    console.log('countries = ', filteredCountryData)
+    // console.log('searchValue = ', searchValue)
+    // console.log('regionValue = ', regionValue)
+    // console.log('countries = ', filteredCountryData)
 
     return (
         <div>
@@ -67,8 +67,8 @@ export default function Home() {
 
             <HeaderContainer />               
             
-            <input value={searchValue} onChange={({target})=> setSearchValue(target.value)}></input>
-            <h3>this is the home page</h3>
+            <span><i class="fas fa-search"></i><input value={searchValue} placeholder="Search for a country..."onChange={({target})=> setSearchValue(target.value)}></input></span>
+            
             {/* <p>Oops, there is a problem, please check the search field = {hasError ? "true" : "false"}</p> */}
             <select value={regionValue} onChange={({target})=> setRegionValue(target.value)}>
                <option value="">Filter By Region</option>  

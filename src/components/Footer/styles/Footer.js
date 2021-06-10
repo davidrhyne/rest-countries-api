@@ -7,14 +7,15 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
     padding: 1em 1em 0;
-    border: 1px magenta solid;
+    /* border: 1px magenta solid; */
     align-items: center;
+    padding: 2em 0;
 `
 
 export const Text = styled.div`
     color: ${props => props.theme.text};
     font-size: 800;
-    padding-bottom: 1em;
+    padding-bottom: 1.5em;
 
     a {
         text-decoration: none ;
