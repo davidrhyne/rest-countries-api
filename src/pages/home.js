@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext }  from 'react'
 import { HeaderContainer } from '../containers/header'
 import { FooterContainer } from '../containers/footer'
-import { Card } from '../components'
+import { Card, Input } from '../components'
 import { Link as ReachRouterLink } from 'react-router-dom'
 import { useCountryData, useHasError } from '../context/countryDataContext'
 
@@ -66,18 +66,25 @@ export default function Home() {
         
 
             <HeaderContainer />               
-            
-            <span><i class="fas fa-search"></i><input value={searchValue} placeholder="Search for a country..."onChange={({target})=> setSearchValue(target.value)}></input></span>
+            <Input>
+                <Input.Group>
+                    <Input.Icon><i class="fas fa-search"></i></Input.Icon>
+                    <Input.InputField><input value={searchValue} placeholder="Search for a country..."onChange={({target})=> setSearchValue(target.value)}></input></Input.InputField>
+                </Input.Group>
+            {/* <span><i class="fas fa-search"></i><input value={searchValue} placeholder="Search for a country..."onChange={({target})=> setSearchValue(target.value)}></input></span> */}
             
             {/* <p>Oops, there is a problem, please check the search field = {hasError ? "true" : "false"}</p> */}
-            <select value={regionValue} onChange={({target})=> setRegionValue(target.value)}>
-               <option value="">Filter By Region</option>  
-               <option value="africa">Africa</option>
-               <option value="americas">Americas</option>
-               <option value="asia">Asia</option>
-               <option value="europe">Europe</option>
-               <option value="oceania">Oceania</option>
-            </select>
+                <Input.Group>
+                    <Input.DropDown value={regionValue} onChange={({target})=> setRegionValue(target.value)}>
+                        <option value="" >Filter By Region</option>  
+                        <option value="africa">Africa</option>
+                        <option value="americas">Americas</option>
+                        <option value="asia">Asia</option>
+                        <option value="europe">Europe</option>
+                        <option value="oceania">Oceania</option>
+                    </Input.DropDown>
+                </Input.Group>
+            </Input>
            
                 <Card.Group>
                     {!filteredCountryData.length ? <p>Sorry, no countries were found</p> : 
@@ -85,27 +92,26 @@ export default function Home() {
                             return (
                                 <Card key={country.alpha3Code}>
                                     <Card.Image src={country.flag} alt={country.name} />
-                                    
-                                        <ReachRouterLink to={`/featured/${country.alpha3Code}`}>
-                                            
-                                                <Card.Title>{country.name}</Card.Title>
-                                            
-                                        </ReachRouterLink>
-                                    
-                                    <Card.Label>Population:</Card.Label>
-                                    <Card.Text>{country.population}</Card.Text>
-                                    <Card.Label>Region:</Card.Label>
-                                    <Card.Text>{country.region}</Card.Text>
-                                    <Card.Label>Capital:</Card.Label>
-                                    <Card.Text>{country.capital}</Card.Text>
+                                    <Card.Section>
+                                        <ReachRouterLink to={`/featured/${country.alpha3Code}`}>                                            
+                                            <Card.Title>{country.name}</Card.Title>                                            
+                                        </ReachRouterLink>                                                                            
+                                        <Card.Label>Population: 
+                                            <Card.Text>{country.population.toLocaleString()}
+                                        </Card.Text></Card.Label>                                        
+                                        <Card.Label>Region:
+                                            <Card.Text>{country.region}
+                                        </Card.Text></Card.Label>                                        
+                                        <Card.Label>Capital: 
+                                            <Card.Text>{country.capital}
+                                        </Card.Text></Card.Label>
+                                    </Card.Section>
                                 </Card>)
                         })                
                     }
                 </Card.Group>
       
-            <FooterContainer>
-                <p>this is body of the Footer</p>
-            </FooterContainer>
+            <FooterContainer />
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Group, Image, Label, Text, Title } from './styles/Card'
+import { Container, Group, Image, Label, Text, Title, Section } from './styles/Card'
 
 
 
@@ -25,4 +25,8 @@ Card.Text = function CardText({children, ...restProps}) {
 
 Card.Title = function CardTitle({children, ...restProps}) {
     return <Title {...restProps} >{children}</Title>
+}
+
+Card.Section = function CardSection({children, ...restProps}) {
+    return <Section {...restProps} >{children}</Section>
 }
