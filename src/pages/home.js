@@ -15,6 +15,7 @@ export default function Home() {
     const [searchValue, setSearchValue] = useState("")
     //const [hasError, setHasError] = useState(false)
     const [regionValue, setRegionValue] = useState("")
+    const [isRegionListVisible, setIsRegionListVisible] = useState(false)
 
 
 
@@ -57,6 +58,12 @@ export default function Home() {
 
     },[countryData, searchValue, regionValue])
 
+    function handleClick() {
+        console.log('clicked')
+        setIsRegionListVisible(prevValue => !prevValue)
+        console.log('isRegionListVisible = ', isRegionListVisible)
+    }
+
     // console.log('searchValue = ', searchValue)
     // console.log('regionValue = ', regionValue)
     // console.log('countries = ', filteredCountryData)
@@ -69,20 +76,25 @@ export default function Home() {
             <Input>
                 <Input.Group>
                     <Input.Icon><i class="fas fa-search"></i></Input.Icon>
-                    <Input.InputField><input value={searchValue} placeholder="Search for a country..."onChange={({target})=> setSearchValue(target.value)}></input></Input.InputField>
+                    <Input.InputField><input value={searchValue} placeholder="Search for a country..." onChange={({target})=> setSearchValue(target.value)}></input></Input.InputField>
                 </Input.Group>
             {/* <span><i class="fas fa-search"></i><input value={searchValue} placeholder="Search for a country..."onChange={({target})=> setSearchValue(target.value)}></input></span> */}
             
             {/* <p>Oops, there is a problem, please check the search field = {hasError ? "true" : "false"}</p> */}
                 <Input.Group>
-                    <Input.DropDown value={regionValue} onChange={({target})=> setRegionValue(target.value)}>
-                        <option value="" >Filter By Region</option>  
-                        <option value="africa">Africa</option>
-                        <option value="americas">Americas</option>
-                        <option value="asia">Asia</option>
-                        <option value="europe">Europe</option>
-                        <option value="oceania">Oceania</option>
-                    </Input.DropDown>
+                    <Input.Text onClick={handleClick}>Filter By Region</Input.Text>
+                
+                <Input.DropDown 
+                        value={regionValue} 
+                        hidden={isRegionListVisible}
+                        onClick={({target})=> setRegionValue(target.textContent.slice(0,3) === 'All' ? "" : target.textContent)}>
+                        <li value="" >All</li>  
+                        <li value="africa">Africa</li>
+                        <li value="americas">Americas</li>
+                        <li value="asia">Asia</li>
+                        <li value="europe">Europe</li>
+                        <li value="oceania">Oceania</li>
+                </Input.DropDown>
                 </Input.Group>
             </Input>
            

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Icon, InputField, DropDown, Group } from './styles/Input'
+import { Container, Icon, InputField, DropDown, Group, Text } from './styles/Input'
 
 export default function Input({children, ...restProps}) {
     return (
@@ -25,6 +25,13 @@ Input.DropDown = function InputDropDown({ to, children, ...restProps}) {
 
 }
 
+
+Input.Text = function InputText({ to, children, ...restProps}) {
+    return (
+            <Text {...restProps}>{children}</Text>
+    )
+
+}
 Input.Group = function InputGroup({ to, children, ...restProps}) {
     return (
             <Group {...restProps}>{children}</Group>
