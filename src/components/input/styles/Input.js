@@ -77,6 +77,11 @@ export const DropDown = styled.ul`
     position: absolute;
     top: 50px;
     right: 0px; 
+
+
+    transition: 250ms all;   
+    transition-delay: 250ms; 
+
     
     li {
         margin-bottom: .5em;
@@ -106,7 +111,7 @@ export const Group = styled.div`
     border-radius: 5px;
     min-height: 43px;
     position: relative;
-    /* transition: 1s; */
+    transition-delay: 250ms; 
 
     ${props => props.searchField && `
         width: 100%;
@@ -125,21 +130,13 @@ export const Group = styled.div`
         cursor: pointer;
     `} 
 
-    &:hover {
-        
+    &:hover {        
         box-shadow: 0 0 0 2px ${props => props.theme.text};
+        transition-delay: 0s;
     }   
 
     &:hover > ul {
         box-shadow: 0 0 0 2px ${props => props.theme.text};
-        /* //transition: 0s 1s; */
-        /* transition-delay: 1s ;
-        transition: 500ms; */
+        transition-delay: 0s;
     }
-    &:hover ul::after {
-        box-shadow: 0 0 0 2px ${props => props.theme.text};
-        
-        transition-delay: 2s;
-    }
-
 `
