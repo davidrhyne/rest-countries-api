@@ -47,12 +47,13 @@ export const Group = styled.div`
 `
 export const Image = styled.img`
     border: 0;
-    width: 100%;
     border-radius: 5px 5px 0 0;
-    /* cursor: pointer; */
-    height: auto;
-    /* padding: 0;
-    margin: 0; */
+    width: 100%;
+    /* height: auto; */
+    height: 185px;
+    object-fit: cover;
+
+
 `
 export const Label = styled.div`
     font-weight: 600;
