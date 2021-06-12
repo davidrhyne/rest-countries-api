@@ -15,7 +15,7 @@ export default function Home() {
     const [searchValue, setSearchValue] = useState("")
     //const [hasError, setHasError] = useState(false)
     const [regionValue, setRegionValue] = useState("")
-    const [isRegionListVisible, setIsRegionListVisible] = useState(false)
+    const [isRegionListVisible, setIsRegionListVisible] = useState(true)
 
 
 
@@ -58,10 +58,21 @@ export default function Home() {
 
     },[countryData, searchValue, regionValue])
 
-    function handleClick() {
-        console.log('clicked')
+    function handleDropDownClick() {
+        //console.log('drop down clicked')
         setIsRegionListVisible(prevValue => !prevValue)
-        console.log('isRegionListVisible = ', isRegionListVisible)
+        //console.log('isRegionListVisible = ', isRegionListVisible)
+    }
+
+    function handleOffDropDownClick() {
+        // 
+        setIsRegionListVisible(prevValue => prevValue === false ? !prevValue : prevValue )
+
+    }
+
+    function handleDropDownSelect(target) {
+        setRegionValue(target.textContent.slice(0,3) === 'All' ? "" : target.textContent)
+        setIsRegionListVisible(true)
     }
 
     // console.log('searchValue = ', searchValue)
@@ -69,36 +80,35 @@ export default function Home() {
     // console.log('countries = ', filteredCountryData)
 
     return (
-        <div>
+        <div >
         
 
-            <HeaderContainer />               
-            <Input>
-                <Input.Group>
-                    <Input.Icon><i class="fas fa-search"></i></Input.Icon>
+            <HeaderContainer  />               
+            <Input >
+                <Input.Group searchField>
+                    <Input.Icon><i className="fas fa-search"></i></Input.Icon>
                     <Input.InputField><input value={searchValue} placeholder="Search for a country..." onChange={({target})=> setSearchValue(target.value)}></input></Input.InputField>
                 </Input.Group>
-            {/* <span><i class="fas fa-search"></i><input value={searchValue} placeholder="Search for a country..."onChange={({target})=> setSearchValue(target.value)}></input></span> */}
             
-            {/* <p>Oops, there is a problem, please check the search field = {hasError ? "true" : "false"}</p> */}
-                <Input.Group>
-                    <Input.Text onClick={handleClick}>Filter By Region</Input.Text>
+                <Input.Group onClick={handleDropDownClick} dropDown>
+                    <Input.Text >Filter By Region</Input.Text>
                 
-                <Input.DropDown 
-                        value={regionValue} 
-                        hidden={isRegionListVisible}
-                        onClick={({target})=> setRegionValue(target.textContent.slice(0,3) === 'All' ? "" : target.textContent)}>
-                        <li value="" >All</li>  
-                        <li value="africa">Africa</li>
-                        <li value="americas">Americas</li>
-                        <li value="asia">Asia</li>
-                        <li value="europe">Europe</li>
-                        <li value="oceania">Oceania</li>
-                </Input.DropDown>
+                    <Input.DropDown 
+                            value={regionValue} 
+                            hidden={isRegionListVisible}
+                            onClick={({target})=> handleDropDownSelect(target) }>
+                            <li value="" >All</li>  
+                            <li value="africa">Africa</li>
+                            <li value="americas">Americas</li>
+                            <li value="asia">Asia</li>
+                            <li value="europe">Europe</li>
+                            <li value="oceania">Oceania</li>
+                    </Input.DropDown>
+                    <Input.Icon><i className="fas fa-chevron-down"></i></Input.Icon>
                 </Input.Group>
             </Input>
-           
-                <Card.Group>
+            {/* <Card> */}
+                <Card.Group onClick={handleOffDropDownClick}>
                     {!filteredCountryData.length ? <p>Sorry, no countries were found</p> : 
                         filteredCountryData.map(country => {
                             return (
@@ -122,7 +132,7 @@ export default function Home() {
                         })                
                     }
                 </Card.Group>
-      
+            {/* </Card> */}
             <FooterContainer />
         </div>
     )

@@ -10,6 +10,13 @@ export const Container = styled.div`
     /* border: 1px magenta solid; */
     align-items: center;
     padding: 2em 0;
+    /* max-width: 1495px; */
+    margin: 0 auto;
+/* 
+    @media (min-width: 1500px) {
+        padding: 2em 10%;
+        
+    } */
 `
 
 export const Text = styled.div`

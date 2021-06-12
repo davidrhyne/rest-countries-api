@@ -8,22 +8,41 @@ export const Container = styled.div`
     width: 265px;
     background: ${props => props.theme.element};;
     color: ${props => props.theme.text};
-    margin: 3em;
+    margin: 2em;
     border-radius: 5px;
-    
+  
     a {
         text-decoration: none;
     }
+
+    @media (min-width: 700px) {
+        margin: 2em;
+        
+    }
+
 `
 
 export const Group = styled.div`
     background: ${props => props.theme.background};;
     color: ${props => props.theme.text};
-    border: 1px blue solid;
+    /* border: 1px blue solid; */
     display: flex;
     flex-wrap: wrap;
-    padding: 2em;
+    padding: 0 2em;
     justify-content: center;
+    /* max-width: 1440px; */
+    /* max-width: 80%; */
+    margin: 0 auto;
+
+    @media (min-width: 1500px) {
+        padding: 0 5%;
+        
+    }
+
+    @media (min-width: 1800px) {
+        padding: 0 10%;
+        
+    }
     
 `
 export const Image = styled.img`

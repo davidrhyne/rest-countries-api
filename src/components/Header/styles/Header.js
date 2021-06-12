@@ -7,10 +7,23 @@ export const Container = styled.div`
     padding: 2em 1em;
     /* border: 1px magenta solid; */
     align-items: center;
-
+    /* max-width: 80%; */
+    margin: 0 auto;
     a {
         text-decoration: none;
     }
+
+    @media (min-width: 700px) {
+        padding: 2em 6em;
+        
+    }
+
+    @media (min-width: 1500px) {
+        padding: 2em 10%;
+        
+    }
+
+
 `
 
 export const Text = styled.div`

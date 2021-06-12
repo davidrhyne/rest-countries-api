@@ -4,7 +4,7 @@ import * as ROUTES from '../constants/routes';
 import { useTheme, useThemeUpdate } from '../context/ThemeValueContext'
 
 
-export function HeaderContainer( {children}) {
+export function HeaderContainer( {children, ...restProps}) {
 
     const handleToggle = useThemeUpdate()
     const isDarkTheme = useTheme()
@@ -14,8 +14,8 @@ export function HeaderContainer( {children}) {
             <Header.Title to={ROUTES.HOME}>Where in the world?</Header.Title>
             <Header.Text onClick={handleToggle}>
                 {isDarkTheme ? 
-                    <i class="fas fa-lightbulb"><span>Light Mode</span></i> : 
-                    <i class="far fa-moon"><span>Dark Mode</span></i>}
+                    <i className="fas fa-lightbulb"><span>Light Mode</span></i> : 
+                    <i className="far fa-moon"><span>Dark Mode</span></i>}
             </Header.Text>
         </Header>
     )
