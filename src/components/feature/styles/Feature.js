@@ -60,6 +60,10 @@ export const Button = styled.div`
     margin: 0 .75em .75em 0;
     box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, .2);
     border-radius: 2px;
+
+    &:hover {
+        box-shadow: 0px 0px 5px 2px ${props => props.theme.text};
+    }
 `
 
 export const ButtonBack = styled.div`
@@ -87,6 +91,10 @@ export const ButtonBack = styled.div`
         
     }
 
+    &:hover {
+        box-shadow: 0px 0px 5px 2px ${props => props.theme.text};
+    }
+
 `
 
 export const Image = styled.img`
@@ -98,6 +106,7 @@ export const Image = styled.img`
     border-radius: 5px;
     max-height: 400px;
     margin: 3.5em auto 1.5em;
+    
     /* border: 4px white solid; */
 
     /* cursor: pointer; */

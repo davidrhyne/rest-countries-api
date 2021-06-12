@@ -1,25 +1,23 @@
-import React, { useEffect} from 'react'
+import React from 'react'
 import * as ROUTES from '../constants/routes';
 import { Link, useParams } from 'react-router-dom';
 import { useCountryData } from '../context/countryDataContext'
-// import { useTheme } from '../context/old_ThemeContext'
 import { HeaderContainer } from '../containers/header'
 import { FooterContainer } from '../containers/footer'
 import { Feature } from '../components'
 
 
 export default function Featured() {
-
+    // custom hook to get country data
     const countryData = useCountryData()
-    //const isDarkTheme = useTheme()
-    //console.log('featured', countryData)
 
+    // to get the 3-digit country alpha code
     const params = useParams()
-    console.log('params.countryCode = ', params.countryCode)
-    console.log('countryData = ', countryData )
 
+    // of all the countries, get the one in the URL
     const featuredCountry = countryData.filter(country => country.alpha3Code === params.countryCode.toUpperCase())
-    console.log('featuredCountry = ', featuredCountry)
+
+    
     // borders is an array of the neighbor's alpha3Code value
     // so, get the full country values and sort them by name
     const borders = featuredCountry[0]
@@ -29,11 +27,8 @@ export default function Featured() {
 
     // pull out values in arrays to strings 
     const domainList = featuredCountry[0].topLevelDomain.join(", ")    
-
     const currenciesList = featuredCountry[0].currencies.map(currency => currency.name).join(", ")
-
     const languageList = featuredCountry[0].languages.map(language => language.name).join(", ")
-
 
     return (
             <div>
@@ -42,7 +37,7 @@ export default function Featured() {
 
                     <Link to={ROUTES.HOME}>
                         <Feature.ButtonBack >
-                            <i class="fas fa-arrow-left"><span>Back</span></i>
+                            <i className="fas fa-arrow-left"><span>Back</span></i>
                         </Feature.ButtonBack>
                     </Link> 
                     
@@ -91,6 +86,5 @@ export default function Featured() {
                 </Feature>
                 <FooterContainer />
             </div>
-
     )
 }

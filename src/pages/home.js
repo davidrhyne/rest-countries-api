@@ -72,7 +72,7 @@ export default function Home() {
 
     function handleDropDownSelect(target) {
         setRegionValue(target.textContent.slice(0,3) === 'All' ? "" : target.textContent)
-        setIsRegionListVisible(true)
+        setIsRegionListVisible(false)
     }
 
     // console.log('searchValue = ', searchValue)

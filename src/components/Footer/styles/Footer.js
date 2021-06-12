@@ -6,17 +6,9 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1em 1em 0;
-    /* border: 1px magenta solid; */
     align-items: center;
-    padding: 2em 0;
-    /* max-width: 1495px; */
+    padding: 2em 1em 1em;
     margin: 0 auto;
-/* 
-    @media (min-width: 1500px) {
-        padding: 2em 10%;
-        
-    } */
 `
 
 export const Text = styled.div`

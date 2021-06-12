@@ -18,5 +18,4 @@ Header.Title = function HeaderTitle({ to, children, ...restProps}) {
             <Title {...restProps}>{children}</Title>
         </ReachRouterLink>
     )
-
 }

@@ -4,11 +4,10 @@ export const Container = styled.div`
     background: ${props => props.theme.element};
     display: flex;
     justify-content: space-between;
-    padding: 2em 1em;
-    /* border: 1px magenta solid; */
     align-items: center;
-    /* max-width: 80%; */
+    padding: 2em 1em;
     margin: 0 auto;
+
     a {
         text-decoration: none;
     }
@@ -22,15 +21,13 @@ export const Container = styled.div`
         padding: 2em 10%;
         
     }
-
-
 `
 
 export const Text = styled.div`
     color: ${props => props.theme.text};
-    /* border: 1px limegreen solid; */
     font-weight: 600;
     cursor: pointer;
+    /* margin-bottom: 3px; */
 
     span {
         margin-left: .5em;
@@ -41,15 +38,24 @@ export const Text = styled.div`
     @media (min-width: 700px) {
         font-size: .875rem;
     }
+
+    &:hover {        
+        box-shadow: 0px 2px 0px 0px ${props => props.theme.hover};
+        /* background:  ${props => props.theme.text};
+        color: ${props => props.theme.element}; */
+    }   
 `
 
 export const Title = styled.div`
     color: ${props => props.theme.text};
     font-size: 800;
-    /* border: 1px yellow solid; */
 
     @media (min-width: 700px) {
         font-size: 1.5rem;
     }
 
+    &:hover {        
+        box-shadow: 0px 2px 0px 0px ${props => props.theme.hover};
+    
+    }
 `
