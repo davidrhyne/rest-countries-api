@@ -1,7 +1,7 @@
 import React from 'react'
 import * as ROUTES from '../constants/routes';
 import { Link, useParams } from 'react-router-dom';
-import { useCountryData } from '../context/countryDataContext'
+import { useCountryData } from '../context/CountryDataContext'
 import { HeaderContainer } from '../containers/header'
 import { FooterContainer } from '../containers/footer'
 import { Feature } from '../components'
@@ -31,60 +31,53 @@ export default function Featured() {
     const languageList = featuredCountry[0].languages.map(language => language.name).join(", ")
 
     return (
-            <div>
-                <HeaderContainer />
-                <Feature>
-
-                    <Link to={ROUTES.HOME}>
-                        <Feature.ButtonBack >
-                            <i className="fas fa-arrow-left"><span>Back</span></i>
-                        </Feature.ButtonBack>
-                    </Link> 
-                    
-                    <Feature.Image src={featuredCountry[0].flag} alt={featuredCountry[0].name} />
-                    <Feature.Title>{featuredCountry[0].name} </Feature.Title>
-                    <Feature.SubSection panel1>
-                        
-                        <Feature.Label>Native Name:
-                            <Feature.Text>{featuredCountry[0].nativeName} </Feature.Text>
-                        </Feature.Label>
-                        <Feature.Label>Population:
-                            <Feature.Text>{featuredCountry[0].population.toLocaleString()} </Feature.Text>
-                        </Feature.Label>
-                        <Feature.Label>Region:
-                            <Feature.Text>{featuredCountry[0].region} </Feature.Text>
-                        </Feature.Label>
-                        <Feature.Label>Sub Region:
-                            <Feature.Text>{featuredCountry[0].subregion} </Feature.Text>
-                        </Feature.Label>       
-                        <Feature.Label>Capital:
-                            <Feature.Text>{featuredCountry[0].capital} </Feature.Text>
-                        </Feature.Label>
-                    </Feature.SubSection>
-
-                    <Feature.Spacer />
-                    <Feature.SubSection  panel2>
-
-                        <Feature.Label>Top Level Domain:
-                            <Feature.Text>{domainList} </Feature.Text>
-                        </Feature.Label>           
-                        <Feature.Label>Currencies:
-                            <Feature.Text>{currenciesList}</Feature.Text>
-                        </Feature.Label>
-                        <Feature.Label>Languages:
-                            <Feature.Text>{languageList}</Feature.Text>
-                        </Feature.Label>    
-                    </Feature.SubSection>
-                    <Feature.Spacer />   
-    
-                    <Feature.GroupHeading><span>Border Countries: </span>
-                        <Feature.Group>
-                            {borders.length ? borders.map(country => <Link key={country.alpha3Code} to={`/featured/${country.alpha3Code}` }><Feature.Button >{country.name}</Feature.Button></Link>) : <Feature.Text>no border countries</Feature.Text>}
-                        </Feature.Group>
-                    </Feature.GroupHeading>
-
-                </Feature>
-                <FooterContainer />
-            </div>
+        <div>
+            <HeaderContainer />
+            <Feature>
+                <Link to={ROUTES.HOME}>
+                    <Feature.Button backButton>
+                        <i className="fas fa-arrow-left"><span>Back</span></i>
+                    </Feature.Button>
+                </Link>                 
+                <Feature.Image src={featuredCountry[0].flag} alt={featuredCountry[0].name} />
+                <Feature.Title>{featuredCountry[0].name} </Feature.Title>
+                <Feature.SubSection panel1>                    
+                    <Feature.Label>Native Name:
+                        <Feature.Text>{featuredCountry[0].nativeName} </Feature.Text>
+                    </Feature.Label>
+                    <Feature.Label>Population:
+                        <Feature.Text>{featuredCountry[0].population.toLocaleString()} </Feature.Text>
+                    </Feature.Label>
+                    <Feature.Label>Region:
+                        <Feature.Text>{featuredCountry[0].region} </Feature.Text>
+                    </Feature.Label>
+                    <Feature.Label>Sub Region:
+                        <Feature.Text>{featuredCountry[0].subregion} </Feature.Text>
+                    </Feature.Label>       
+                    <Feature.Label>Capital:
+                        <Feature.Text>{featuredCountry[0].capital} </Feature.Text>
+                    </Feature.Label>
+                </Feature.SubSection>
+                <Feature.Spacer />
+                <Feature.SubSection  panel2>
+                    <Feature.Label>Top Level Domain:
+                        <Feature.Text>{domainList} </Feature.Text>
+                    </Feature.Label>           
+                    <Feature.Label>Currencies:
+                        <Feature.Text>{currenciesList}</Feature.Text>
+                    </Feature.Label>
+                    <Feature.Label>Languages:
+                        <Feature.Text>{languageList}</Feature.Text>
+                    </Feature.Label>    
+                </Feature.SubSection>
+                <Feature.Spacer />   
+                <Feature.GroupHeading><span>Border Countries: </span>
+                    <Feature.Group>
+                        {borders.length ? borders.map(country => <Link key={country.alpha3Code} to={`/featured/${country.alpha3Code}` }><Feature.Button >{country.name}</Feature.Button></Link>) : <Feature.Text>no border countries</Feature.Text>}
+                    </Feature.Group>
+                </Feature.GroupHeading>
+            </Feature>
+            <FooterContainer />
+        </div>
     )
 }

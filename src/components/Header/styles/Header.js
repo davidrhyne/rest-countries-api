@@ -13,13 +13,11 @@ export const Container = styled.div`
     }
 
     @media (min-width: 700px) {
-        padding: 2em 6em;
-        
+        padding: 2em 6em;        
     }
 
     @media (min-width: 1500px) {
-        padding: 2em 10%;
-        
+        padding: 2em 10%;        
     }
 `
 
@@ -27,7 +25,6 @@ export const Text = styled.div`
     color: ${props => props.theme.text};
     font-weight: 600;
     cursor: pointer;
-    /* margin-bottom: 3px; */
 
     span {
         margin-left: .5em;
@@ -41,8 +38,6 @@ export const Text = styled.div`
 
     &:hover {        
         box-shadow: 0px 2px 0px 0px ${props => props.theme.hover};
-        /* background:  ${props => props.theme.text};
-        color: ${props => props.theme.element}; */
     }   
 `
 
@@ -55,7 +50,12 @@ export const Title = styled.div`
     }
 
     &:hover {        
-        box-shadow: 0px 2px 0px 0px ${props => props.theme.hover};
-    
+        box-shadow: 0px 2px 0px 0px ${props => props.theme.hover};    
     }
+`
+
+export const Error = styled.div`
+    background: pink;
+    margin-left: 1em;
+    padding: 1em;
 `

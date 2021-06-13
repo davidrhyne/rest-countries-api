@@ -17,8 +17,7 @@ export const Container = styled.div`
     }
 
     @media (min-width: 1500px) {
-        padding: 2em 10%;
-     
+        padding: 2em 10%;     
     }
 `
 
@@ -96,7 +95,6 @@ export const DropDown = styled.ul`
         top: 55px;
         right: 0; 
     }
-
 `
 
 export const Group = styled.div`

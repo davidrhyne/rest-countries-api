@@ -15,26 +15,22 @@ Input.InputField = function InputInputField({ to, children, ...restProps}) {
     return (
             <InputField {...restProps}>{children}</InputField>
     )
-
 }
 
 Input.DropDown = function InputDropDown({ to, children, ...restProps}) {
     return (
             <DropDown {...restProps}>{children}</DropDown>
     )
-
 }
 
+Input.Group = function InputGroup({ to, children, ...restProps}) {
+    return (
+            <Group {...restProps}>{children}</Group>
+    )
+}
 
 Input.Text = function InputText({ to, children, ...restProps}) {
     return (
             <Text {...restProps}>{children}</Text>
     )
-
-}
-Input.Group = function InputGroup({ to, children, ...restProps}) {
-    return (
-            <Group {...restProps}>{children}</Group>
-    )
-
 }

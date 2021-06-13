@@ -1,10 +1,7 @@
 import React from 'react'
 import { Footer } from '../components';
-// import { useTheme } from '../context/ThemeContext'
 
-export function FooterContainer(props) {
-    //console.log('footer container props', props)
-    // const isDarkTheme = useTheme()
+export function FooterContainer() {
     return (
         <Footer >
             <Footer.Text>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>.</Footer.Text>

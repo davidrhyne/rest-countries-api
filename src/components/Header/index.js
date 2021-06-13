@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Text, Title } from './styles/Header'
+import { Container, Text, Title, Error } from './styles/Header'
 import { Link as ReachRouterLink } from 'react-router-dom';
 
 export default function Header({children, ...restProps}) {
@@ -17,5 +17,11 @@ Header.Title = function HeaderTitle({ to, children, ...restProps}) {
         <ReachRouterLink to={to}>
             <Title {...restProps}>{children}</Title>
         </ReachRouterLink>
+    )
+}
+
+Header.Error = function HeaderError({ to, children, ...restProps}) {
+    return (
+        <Error {...restProps}>{children}</Error>
     )
 }

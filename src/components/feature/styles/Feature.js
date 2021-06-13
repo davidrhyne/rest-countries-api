@@ -6,8 +6,7 @@ export const Container = styled.div`
     padding: 3em 2em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
+    justify-content: center;    
 
     @media (min-width: 500px) {        
         padding: 2em;
@@ -48,6 +47,10 @@ export const Container = styled.div`
             "image . groupHeading groupHeading"        
         ;
     }
+
+    a {
+            color: ${props => props.theme.text};
+        }
 `
 
 export const Button = styled.div`
@@ -61,34 +64,35 @@ export const Button = styled.div`
     &:hover {
         box-shadow: 0px 0px 5px 2px ${props => props.theme.text};
     }
-`
 
-export const ButtonBack = styled.div`
-    grid-area: buttonBack;
-    background: ${props => props.theme.element};
-    padding: .5em 1em;
-    margin: 0 .5em .5em 0;
-    max-width: 90px;
-    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, .2);
-    border-radius: 2px;
+    ${props => props.backButton && `
+        grid-area: buttonBack;
+        background: ${props => props.theme.element};
+        padding: .5em 1em;
+        margin: 0 .5em .5em 0;
+        max-width: 90px;
+        box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, .2);
+        border-radius: 2px;
 
-    i, span {
-        margin-left: 1em;
-        color: ${props => props.theme.text};        
-    }
+        i, span {
+            margin-left: 1em;
+            color: ${props => props.theme.text};        
+        }
 
-    span {
-        font-family: 'Nunito Sans', sans-serif;
-        font-weight: 300;
-    }
+        span {
+            font-family: 'Nunito Sans', sans-serif;
+            font-weight: 300;
+        }
 
-    @media (min-width: 700px) {        
-        margin-bottom: 3em;        
-    }
+        @media (min-width: 700px) {        
+            margin-bottom: 3em;        
+        }
 
-    &:hover {
-        box-shadow: 0px 0px 5px 2px ${props => props.theme.text};
-    }
+        &:hover {
+            box-shadow: 0px 0px 5px 2px ${props => props.theme.text};
+        }
+    `} 
+
 `
 
 export const Image = styled.img`
@@ -131,12 +135,10 @@ export const Section = styled.div`
 export const SubSection = styled.div`
 
     ${props => props.panel1 && `
-        /* background: purple; */
         grid-area: panel1;
     `} 
     
     ${props => props.panel2 && `
-        /* background: dodgerblue; */
         grid-area: panel2;
     `} 
 
@@ -173,7 +175,6 @@ export const GroupHeading = styled.div`
     span {
         display: block;
         padding-bottom: .75em;
-        /* border: 1px limegreen solid; */
     }
     
     @media (min-width: 600px) {

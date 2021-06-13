@@ -1,8 +1,6 @@
 import React from 'react'
 import { Container, Group, Image, Label, Text, Title, Section } from './styles/Card'
 
-
-
 export default function Card({ children, ...restProps}) {
     return <Container {...restProps}>{children}</Container>
 }

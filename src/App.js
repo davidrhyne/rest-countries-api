@@ -1,10 +1,9 @@
 import React from 'react'
 import {Switch, Route } from "react-router-dom"
-import './App.css';
 import * as ROUTES from './constants/routes';
 import { Home } from './pages'
 import { Featured } from './pages'
-import { CountryDataContextProvider } from './context/countryDataContext'
+import { CountryDataContextProvider } from './context/CountryDataContext'
 import {  ThemeProvider, createGlobalStyle } from 'styled-components'
 import { useTheme } from './context/ThemeValueContext'
 import {THEME} from './constants/themes'
@@ -12,8 +11,6 @@ import {THEME} from './constants/themes'
 function App() {
 
   const isDarkTheme = useTheme()
-  // console.log('isDarkTheme = ', isDarkTheme)
-  // console.log('THEME = ', THEME.LIGHT)
 
   const GlobalStyle = createGlobalStyle`
     body {
@@ -25,11 +22,8 @@ function App() {
       background: black;
   }
 `
-
   return (
-
-    <CountryDataContextProvider>    
-
+    <CountryDataContextProvider>
       <GlobalStyle />
         <ThemeProvider theme={isDarkTheme ? THEME.DARK : THEME.LIGHT}>
           <Switch>
@@ -39,12 +33,9 @@ function App() {
               <Route exact path={`${ROUTES.FEATURED}/:countryCode`}>
                   <Featured /> 
               </Route>          
-
           </Switch>   
         </ThemeProvider>
-
     </CountryDataContextProvider>
-
   );
 }
 

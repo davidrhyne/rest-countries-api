@@ -12,7 +12,6 @@ export function useHasError() {
     return useContext(HasErrorContext)
 }
 
-
 export function CountryDataContextProvider( {children}) {
     const [countryData, setCountryData] = useState([])
     const [hasError, setHasError] = useState(false)
@@ -34,7 +33,6 @@ export function CountryDataContextProvider( {children}) {
         getData()
 
     },[])
-
 
     return (
         <CountryDataContext.Provider value={countryData}>

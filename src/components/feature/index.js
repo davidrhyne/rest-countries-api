@@ -2,7 +2,6 @@ import React from 'react'
 import { 
     Container,
     Button, 
-    ButtonBack, 
     Image, 
     Title,
     Section, 
@@ -23,10 +22,6 @@ export default function Feature({children, ...restProps}) {
 
 Feature.Button = function FeatureButton({children, ...restProps}) {
     return <Button {...restProps}>{children}</Button>
-}
-
-Feature.ButtonBack = function FeatureButtonBack({children, ...restProps}) {
-    return <ButtonBack {...restProps}>{children}</ButtonBack>
 }
 
 Feature.Image = function FeatureImage({ ...restProps}) {
