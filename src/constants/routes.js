@@ -1,3 +1,2 @@
-export const HOME = '/';
-export const TEST = '/test';
+export const HOME = '/rest-countries-api/';
 export const FEATURED = '/featured';

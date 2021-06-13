@@ -1,5 +1,6 @@
 import React from 'react'
 import {Switch, Route } from "react-router-dom"
+
 import * as ROUTES from './constants/routes';
 import { Home } from './pages'
 import { Featured } from './pages'

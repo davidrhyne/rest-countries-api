@@ -1,7 +1,7 @@
 import React from 'react'
 import { Footer } from '../components';
 
-export function FooterContainer() {
+export function FooterContainer(props) {
     return (
         <Footer >
             <Footer.Text>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>.</Footer.Text>
