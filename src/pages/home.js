@@ -10,32 +10,13 @@ export default function Home() {
 
     //const [countryData, setCountryData] = useState([])
     const countryData = useCountryData()
-    const hasError = useHasError()
+//    const hasError = useHasError()
     const [filteredCountryData, setFilteredCountryData] = useState([])
     const [searchValue, setSearchValue] = useState("")
     //const [hasError, setHasError] = useState(false)
     const [regionValue, setRegionValue] = useState("")
     const [isRegionListVisible, setIsRegionListVisible] = useState(true)
 
-
-
-    // // get the full set of country data once, when loaded
-    // useEffect(()=> {
-    //     console.log('api getting the data')
-
-    //     async function handleResponse(response) {
-    //         setHasError(!response.ok)
-    //         return response.ok && response.json ? response.json() : []
-    //     }
-
-    //     async function getData() {
-    //         const response = await fetch(API.ALL)
-    //         const data = await handleResponse(response)
-    //         setCountryData(data)
-    //     }
-    //     getData()
-
-    // },[])
 
     // use filteredCountryData for displaying the countries that have 
     // been filtered by regionValue and/or searchValue, or show all

@@ -12,7 +12,7 @@ export const Container = styled.div`
     margin: 0 auto;
 
     @media (min-width: 700px) {
-        padding: 2em 10em;
+        padding: 2em 7em;
         font-size: .875rem;
     }
 
@@ -55,9 +55,9 @@ export const InputField = styled.div`
     }
 `
 export const Text = styled.p`
-    background: ${props => props.theme.element};;
-    color: ${props => props.theme.text};
-    border-radius: 5px;
+    
+    background: ${props => props.theme.element};
+    color: ${props => props.theme.text};    
     outline: none;
     border: none;
     padding: 0;
@@ -78,10 +78,8 @@ export const DropDown = styled.ul`
     top: 50px;
     right: 0px; 
 
-
     transition: 250ms all;   
     transition-delay: 250ms; 
-
     
     li {
         margin-bottom: .5em;
@@ -90,7 +88,7 @@ export const DropDown = styled.ul`
 
     li:hover {
         box-shadow: 0px 2px 0px 0px ${props => props.theme.textInput};
-        transition: 200ms;
+        /* transition: 200ms; */
     }
 
     @media (min-width: 700px) {
@@ -111,7 +109,7 @@ export const Group = styled.div`
     border-radius: 5px;
     min-height: 43px;
     position: relative;
-    transition-delay: 250ms; 
+    /* transition-delay: 250ms;  */
 
     ${props => props.searchField && `
         width: 100%;
@@ -130,13 +128,13 @@ export const Group = styled.div`
         cursor: pointer;
     `} 
 
-    &:hover {        
+    /* &:hover {        
         box-shadow: 0 0 0 2px ${props => props.theme.text};
         transition-delay: 0s;
     }   
 
     &:hover > ul {
         box-shadow: 0 0 0 2px ${props => props.theme.text};
-        transition-delay: 0s;
-    }
+                
+    } */
 `

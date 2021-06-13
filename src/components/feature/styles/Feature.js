@@ -9,12 +9,10 @@ export const Container = styled.div`
     justify-content: center;
     
 
-    @media (min-width: 500px) {
-        
+    @media (min-width: 500px) {        
         padding: 2em;
         display: grid;
         margin: 0 auto;
-        /* background: black; */
         gap: 0 1em;
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
@@ -50,7 +48,6 @@ export const Container = styled.div`
             "image . groupHeading groupHeading"        
         ;
     }
-
 `
 
 export const Button = styled.div`
@@ -85,46 +82,29 @@ export const ButtonBack = styled.div`
         font-weight: 300;
     }
 
-    @media (min-width: 700px) {
-        
-        margin-bottom: 3em;
-        
+    @media (min-width: 700px) {        
+        margin-bottom: 3em;        
     }
 
     &:hover {
         box-shadow: 0px 0px 5px 2px ${props => props.theme.text};
     }
-
 `
 
 export const Image = styled.img`
     grid-area: image;
     border: 0;
-    /* height: 320px; */
     width: 100%;
-    /* height: auto; */
     border-radius: 5px;
     max-height: 400px;
     margin: 3.5em auto 1.5em;
-    
-    /* border: 4px white solid; */
 
-    /* cursor: pointer; */
-    /* height: auto; */
-    /* padding: 0;
-    margin: 0; */
-
-    @media (min-width: 600px) {
-        
+    @media (min-width: 600px) {        
         margin: 2em 0;
-
     }
-
-
 `
 
 export const Title = styled.div`
-    /* border: 1px limegreen solid; */
     grid-area: title;
     font-size: 1.375rem;
     font-weight: 800;
@@ -134,31 +114,21 @@ export const Title = styled.div`
 
     @media (min-width: 1000px) {
         font-size: 2rem;
-        margin: 0 0 1em 0;
-        
+        margin: 0 0 1em 0;        
     }
-
 `
 
 export const Section = styled.div`
-    /* border: 1px dodgerblue solid; */
     font-size: 1.375rem;
     
     @media (min-width: 600px) {
         display: flex;
         flex-direction: row;
-
         padding: 2em;
-        
-        /* background: black; */
     }
-    
-    
 `
 
 export const SubSection = styled.div`
-    /* border: 4px pink solid; */
-    
 
     ${props => props.panel1 && `
         /* background: purple; */
@@ -170,8 +140,13 @@ export const SubSection = styled.div`
         grid-area: panel2;
     `} 
 
+    @media (min-width: 500px) {
+        margin-bottom: 2em;
+    }
 
-
+    @media (min-width: 700px) {
+        margin-bottom: 0;
+    }
 `
 
 export const Label = styled.div`
@@ -189,18 +164,11 @@ export const Text = styled.span`
 export const Spacer = styled.span`
     display: block;
     min-height: 2em;
-
-    @media (min-width: 1000px) {
-        display: unset;
-        
-    }
-    
 `
 
 export const GroupHeading = styled.div`
     grid-area: groupHeading;
     font-size: 1rem;
-    /* border: 1px red solid; */
 
     span {
         display: block;
@@ -215,10 +183,7 @@ export const GroupHeading = styled.div`
 
     @media (min-width: 1200px) {
         margin-top: 0;
-
     }
-
-
 `
 
 export const Group = styled.div`
@@ -228,8 +193,6 @@ export const Group = styled.div`
     a {
         text-decoration: none;
         color: ${props => props.theme.text};
-        font-weight: 300;
-        
+        font-weight: 300;        
     }
-
 `
