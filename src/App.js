@@ -1,6 +1,5 @@
 import React from 'react'
 import {Switch, Route } from "react-router-dom"
-
 import * as ROUTES from './constants/routes';
 import { Home } from './pages'
 import { Featured } from './pages'
@@ -28,12 +27,8 @@ function App() {
       <GlobalStyle />
         <ThemeProvider theme={isDarkTheme ? THEME.DARK : THEME.LIGHT}>
           <Switch>
-              <Route exact path={ROUTES.HOME}>
-                  <Home />
-              </Route>
-              <Route exact path={`${ROUTES.FEATURED}/:countryCode`}>
-                  <Featured /> 
-              </Route>          
+              <Route exact path={ROUTES.HOME} component={Home} />
+              <Route exact path={`${ROUTES.FEATURED}/:countryCode`} component={Featured} />
           </Switch>   
         </ThemeProvider>
     </CountryDataContextProvider>

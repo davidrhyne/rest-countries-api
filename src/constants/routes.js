@@ -1,2 +1,2 @@
-export const HOME = '/rest-countries-api/';
+export const HOME = '/';
 export const FEATURED = '/featured';

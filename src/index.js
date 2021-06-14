@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router} from "react-router-dom"
+import {HashRouter} from "react-router-dom"
 import './index.css';
 import App from './App';
 import { ThemeValueProvider } from './context/ThemeValueContext'
 
 
 ReactDOM.render(
-  <Router>
+  <HashRouter>
     <ThemeValueProvider>
       <React.StrictMode>
         <App />
       </React.StrictMode>
     </ThemeValueProvider>
-  </Router>,
+  </HashRouter>,
   document.getElementById('root')
 );

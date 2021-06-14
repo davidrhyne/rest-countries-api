@@ -37,7 +37,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [[@github](https://github.com/davidrhyne/rest-countries-api)]
-- Live Site URL: [@github pages](https://your-live-site-url.com)
+- Live Site URL: [@github pages](https://davidrhyne.github.io/rest-countries-api/)
 
 ## My process
 
@@ -47,7 +47,7 @@ After reading and analyzing the design spec, I focused on getting all the essent
 
 - [REST Countries API](https://restcountries.eu/)
 - [React](https://reactjs.org/) - JS library
-- [React Router]https://reactrouter.com/core/guides/quick-start
+- [React Router](https://reactrouter.com/core/guides/quick-start)
 - [Styled Components](https://styled-components.com/) - For styles
 - Semantic HTML5 markup
 - CSS custom properties
