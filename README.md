@@ -33,7 +33,9 @@ Users should be able to:
 ### Screenshot
 
 ![desktop-dark](https://user-images.githubusercontent.com/63062052/121948153-80495500-cd1c-11eb-8930-e2806239e386.png)
-![mobile-light](https://user-images.githubusercontent.com/63062052/121948672-25642d80-cd1d-11eb-95d6-4f19b5ca2e9e.png)
+![mobile-light](https://user-images.githubusercontent.com/63062052/121949122-baffbd00-cd1d-11eb-86c3-17ac3c9c7c25.png)
+![mobile-dark](https://user-images.githubusercontent.com/63062052/121949365-ff8b5880-cd1d-11eb-9bbd-fe833cceed93.png)
+
 
 ### Links
 
