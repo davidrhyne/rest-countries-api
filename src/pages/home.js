@@ -51,7 +51,7 @@ export default function Home() {
             <Input >
                 <Input.Group searchField>
                     <Input.Icon><i className="fas fa-search"></i></Input.Icon>
-                    <Input.InputField><input value={searchValue} placeholder="Search for a country..." onChange={({target})=> setSearchValue(target.value)}></input></Input.InputField>
+                    <Input.InputField><input name="search" aria-label="search" value={searchValue} placeholder="Search for a country..." onChange={({target})=> setSearchValue(target.value)}></input></Input.InputField>
                 </Input.Group>            
                 <Input.Group onClick={handleDropDownClick} dropDown>
                     <Input.Text >Filter By Region</Input.Text>                
@@ -59,12 +59,12 @@ export default function Home() {
                             value={regionValue} 
                             hidden={isRegionListVisible}
                             onClick={({target})=> handleDropDownSelect(target) }>
-                            <li value="" >All</li>  
-                            <li value="africa">Africa</li>
-                            <li value="americas">Americas</li>
-                            <li value="asia">Asia</li>
-                            <li value="europe">Europe</li>
-                            <li value="oceania">Oceania</li>
+                            <li>All</li>  
+                            <li>Africa</li>
+                            <li>Americas</li>
+                            <li>Asia</li>
+                            <li>Europe</li>
+                            <li>Oceania</li>
                     </Input.DropDown>
                     <Input.Icon><i className="fas fa-chevron-down"></i></Input.Icon>
                 </Input.Group>
