@@ -32,11 +32,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![desktop-dark](https://user-images.githubusercontent.com/63062052/121948153-80495500-cd1c-11eb-8930-e2806239e386.png)
+![mobile-light](https://user-images.githubusercontent.com/63062052/121948672-25642d80-cd1d-11eb-95d6-4f19b5ca2e9e.png)
 
 ### Links
 
-- Solution URL: [[@github](https://github.com/davidrhyne/rest-countries-api)]
+- Solution URL: [@github](https://github.com/davidrhyne/rest-countries-api)
 - Live Site URL: [@github pages](https://davidrhyne.github.io/rest-countries-api/)
 
 ## My process
@@ -57,9 +58,9 @@ After reading and analyzing the design spec, I focused on getting all the essent
 
 ### What I learned
 
-This was a great React single page application to interface with the REST Countries API.  While I have written a few React applications from scrath, this was the first to use React Router and an API.  This provided a great opportunity to manage the information from the API and to control the navigation between pages.  
+This was a great React single page application to interface with the REST Countries API.  While I have written several React applications from scrath, this was the first to use React Router and an API.  This provided a great opportunity to manage the information from the API and to control the navigation between pages.  
 
-My knowledge of styled components grew to incorporated the ThemeProvider and createGlobalStyle modules.  I initially struggled with trying to code the theme functionality and was very happy to switch to ThemeProvider.  And this was the first project where I incorporated CSS grid with styled-components and was very pleased with results.
+My knowledge of styled components grew to incorporated the ThemeProvider and createGlobalStyle modules.  I initially struggled with trying to code the theme functionality and was very happy to switch to ThemeProvider.  And this was the first project where I incorporated CSS grid with styled-components and was extremely pleased with results.
 
 ### Continued development
 
