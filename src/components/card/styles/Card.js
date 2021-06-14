@@ -10,6 +10,8 @@ export const Container = styled.div`
   
     a {
         text-decoration: none;
+        background: ${props => props.theme.element};;
+        color: ${props => props.theme.text};
     }
 
     @media (min-width: 700px) {

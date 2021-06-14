@@ -46,7 +46,7 @@ export default function Home() {
     }
 
     return (
-        <div >
+        <>
             <HeaderContainer />
             <Input >
                 <Input.Group searchField>
@@ -74,26 +74,27 @@ export default function Home() {
                     filteredCountryData.map(country => {
                         return (
                             <Card key={country.alpha3Code}>
-                                <Card.Image src={country.flag} alt={country.name} />
-                                <Card.Section>
-                                    <ReachRouterLink to={`/featured/${country.alpha3Code}`}>                                            
-                                        <Card.Title>{country.name}</Card.Title>                                            
-                                    </ReachRouterLink>                                                                            
-                                    <Card.Label>Population: 
-                                        <Card.Text>{country.population.toLocaleString()}
-                                    </Card.Text></Card.Label>                                        
-                                    <Card.Label>Region:
-                                        <Card.Text>{country.region}
-                                    </Card.Text></Card.Label>                                        
-                                    <Card.Label>Capital: 
-                                        <Card.Text>{country.capital}
-                                    </Card.Text></Card.Label>
-                                </Card.Section>
-                            </Card>)
+                            <ReachRouterLink to={`/featured/${country.alpha3Code}`}>                                            
+                                <Card.Image src={country.flag} alt={country.name} />                                
+                                    <Card.Section>                                        
+                                        <Card.Title>{country.name}</Card.Title>                                                                                                                
+                                        <Card.Label>Population: 
+                                            <Card.Text>{country.population.toLocaleString()}
+                                        </Card.Text></Card.Label>                                        
+                                        <Card.Label>Region:
+                                            <Card.Text>{country.region}
+                                        </Card.Text></Card.Label>                                        
+                                        <Card.Label>Capital: 
+                                            <Card.Text>{country.capital}
+                                        </Card.Text></Card.Label>
+                                    </Card.Section>
+                                </ReachRouterLink> 
+                            </Card>
+                        )
                     })                
                 }
             </Card.Group>
             <FooterContainer />
-        </div>
+        </>
     )
 }

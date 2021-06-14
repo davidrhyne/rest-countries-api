@@ -18,7 +18,6 @@ export function CountryDataContextProvider( {children}) {
 
     // get the full set of country data once, when loaded
     useEffect(()=> {
-        console.log('api getting the data')
 
         async function handleResponse(response) {
             setHasError(!response.ok)
@@ -29,8 +28,15 @@ export function CountryDataContextProvider( {children}) {
             const response = await fetch(API.ALL)
             const data = await handleResponse(response)
             setCountryData(data)
+            // save to local storage for featured countries
+            localStorage.setItem('rest-countries-api', JSON.stringify(data))
         }
         getData()
+        
+        return () => {
+            // clean up when app is unloaded
+            localStorage.removeItem('rest-countries-api')
+        }
 
     },[])
 

@@ -19,7 +19,7 @@ export function HeaderContainer( {children, ...restProps}) {
                     <i className="far fa-moon"><span>Dark Mode</span></i>}
             </Header.Text>
 
-            <Header.Error style={{display: hasError ? 'block' : 'none'}}>{'Sorry, there is a problem receiving data from REST Countries API. Please try again later.'}</Header.Error>
+            {!hasError ? null : <Header.Error >{'Sorry, there is a problem receiving data from REST Countries API. Please try again later.'}</Header.Error>}
  
         </Header>
     )

@@ -1,28 +1,30 @@
 import React from 'react'
 import * as ROUTES from '../constants/routes';
 import { Link, useParams } from 'react-router-dom';
-import { useCountryData } from '../context/CountryDataContext'
+//import { useCountryData } from '../context/CountryDataContext'
 import { HeaderContainer } from '../containers/header'
 import { FooterContainer } from '../containers/footer'
 import { Feature } from '../components'
 
 
 export default function Featured() {
-    // custom hook to get country data
-    const countryData = useCountryData()
-
+    // this would not survive a refresh, so went with local storage
+    // custom hook to get country data 
+    // const countryData = useCountryData()
+    // const [localData, setLocalData] = useState()
+    
     // to get the 3-digit country alpha code
     const params = useParams()
+    const localData = JSON.parse(localStorage.getItem('rest-countries-api'))
 
     // of all the countries, get the one in the URL
-    const featuredCountry = countryData.filter(country => country.alpha3Code === params.countryCode.toUpperCase())
-
+    const featuredCountry = localData.filter(country => country.alpha3Code === params.countryCode.toUpperCase())
     
     // borders is an array of the neighbor's alpha3Code value
     // so, get the full country values and sort them by name
     const borders = featuredCountry[0]
         .borders.map(countryCode => 
-            countryData.filter( country => country.alpha3Code === countryCode)[0])
+            localData.filter( country => country.alpha3Code === countryCode)[0])
         .sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
 
     // pull out values in arrays to strings 
