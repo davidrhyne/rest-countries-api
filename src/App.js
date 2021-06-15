@@ -19,7 +19,13 @@ function App() {
       font-weight: 600;
       box-sizing: border-box;
       margin: 0 auto;
-      background: black;
+  }
+
+  .isLoading {
+    text-align: center;
+    font-size: 1rem;
+    background: lightgray;
+    color: black;
   }
 `
   return (

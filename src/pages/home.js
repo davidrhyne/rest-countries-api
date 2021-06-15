@@ -3,11 +3,13 @@ import { HeaderContainer } from '../containers/header'
 import { FooterContainer } from '../containers/footer'
 import { Card, Input } from '../components'
 import { Link as ReachRouterLink } from 'react-router-dom'
-import { useCountryData} from '../context/CountryDataContext'
+import { useCountryData, useIsLoading} from '../context/CountryDataContext'
 
 
 export default function Home() {
     const countryData = useCountryData()
+    const isLoading = useIsLoading()
+
     const [filteredCountryData, setFilteredCountryData] = useState([])
     const [searchValue, setSearchValue] = useState("")
     const [regionValue, setRegionValue] = useState("")
@@ -54,9 +56,8 @@ export default function Home() {
                     <Input.InputField><input name="search" aria-label="search" value={searchValue} placeholder="Search for a country..." onChange={({target})=> setSearchValue(target.value)}></input></Input.InputField>
                 </Input.Group>            
                 <Input.Group onClick={handleDropDownClick} dropDown>
-                    <Input.Text >Filter By Region</Input.Text>                
-                    <Input.DropDown 
-                            value={regionValue} 
+                    <Input.Text>{regionValue ? regionValue : 'Filter By Region'}</Input.Text>                
+                    <Input.DropDown                             
                             hidden={isRegionListVisible}
                             onClick={({target})=> handleDropDownSelect(target) }>
                             <li>All</li>  
@@ -69,6 +70,7 @@ export default function Home() {
                     <Input.Icon><i className="fas fa-chevron-down"></i></Input.Icon>
                 </Input.Group>
             </Input>
+            {isLoading ? <div className="isLoading">Loading the country data... thank you for your patience! MGMT</div> : null}
             <Card.Group onClick={handleOffDropDownClick}>
                 {!filteredCountryData.length ? <p>Sorry, no countries meet those search criteria, please try again. </p> : 
                     filteredCountryData.map(country => {
