@@ -53,8 +53,7 @@ export const InputField = styled.div`
         color: ${props => props.theme.text};
     }
 `
-export const Text = styled.p`
-    
+export const Text = styled.p`    
     background: ${props => props.theme.element};
     color: ${props => props.theme.text};    
     outline: none;
@@ -74,6 +73,7 @@ export const DropDown = styled.ul`
     list-style-type: none;
     z-index: 9;
     position: absolute;
+    
     top: 50px;
     right: 0px; 
 
@@ -83,6 +83,10 @@ export const DropDown = styled.ul`
     li {
         margin-bottom: .5em;
         width: 150px;
+        
+        @media (max-width: 700px) {
+            width: 90px;
+        }
     }
 
     li:hover {
